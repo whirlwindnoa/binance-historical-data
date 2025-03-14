@@ -4,7 +4,7 @@ A CLI utility to easily download large amounts of historical trading data from [
 
 ## Why
 
-Binance offers two methods to access the historical data: through [their API](https://binance-docs.github.io/apidocs) in `JSON` format or [this webpage](https://www.binance.com/en/landing/data) in `CSV` format. It's impossible to *quickly* get historical data for data types like `trades` and `aggTrades` with the first method, and it would still require some manual labor to fetch a lot of files with the second method. 
+Binance offers two methods to access the historical data: through [their API](https://binance-docs.github.io/apidocs) in `JSON` format or [this webpage](https://www.binance.com/en/landing/data) in `CSV` format. It's impossible to *quickly* get historical data for data types such as `trades` and `aggTrades` with the first method, and it would still require some manual labor to fetch a lot of files with the second method. 
 
 This library allows to collect data in `CSV` format for any date range, any number of symbols and intervals (if present) with a single command.
 
@@ -56,20 +56,20 @@ This command downloads `monthly` data for two `symbols` and all `intervals` from
 
 #### Possible values
 
-##### product
+##### `--product (-p)`
 
 - spot
 - usd-m
 - coin-m
 - option
 
-##### data-type (spot)
+##### `--data-type (-t)` (spot)
 
 - klines
 - aggTrades
 - trades
 
-##### data-type (usd-m/coin-m monthly)
+##### `--data-type (-t)` (usd-m/coin-m monthly)
 
 - aggTrades
 - bookTicker
@@ -80,7 +80,7 @@ This command downloads `monthly` data for two `symbols` and all `intervals` from
 - premiumIndexKlines
 - trades
 
-##### data-type (usd-m/coin-m daily)
+##### `--data-type (-t)` (usd-m/coin-m daily)
 
 - aggTrades
 - bookDepth
@@ -93,14 +93,14 @@ This command downloads `monthly` data for two `symbols` and all `intervals` from
 - premiumIndexKlines
 - trades
 
-##### data-type (option)
+##### `--data-type (-t)` (option)
 
 - BVOLIndex
 - EOHSummary
 
-##### interval
+##### `--intervals (-i)`
 
-For all the intervals see example above.
+1s 1m 3m 5m 15m 30m 1h 2h 4h 6h 8h 12h 1d 3d 1w 1mo.
 
 ### Output directory
 

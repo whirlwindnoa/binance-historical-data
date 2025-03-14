@@ -303,16 +303,20 @@ try {
     if (!waitingToFinish) {
       waitingToFinish = true;
       Promise.all(promises).then(() => {
-        let result = `Downloaded: ${progressCount.success}/${requestCount} files`;
-        if (progressCount.noData) {
-          result += `; not found: ${progressCount.noData}/${requestCount} files`;
-        }
-        if (progressCount.fail) {
-          result += `; failed to complete: ${progressCount.fail}/${requestCount} files`;
-        }
-        console.log(result);
-        if (progressCount.success === 0) {
-          process.exitCode = 1;
+        if (progressCount.success === requestCount){
+          console.log("DONE");
+        } else {
+          let result = `Downloaded: ${progressCount.success}/${requestCount} files`;
+          if (progressCount.noData) {
+            result += `; not found: ${progressCount.noData}/${requestCount} files`;
+          }
+          if (progressCount.fail) {
+            result += `; failed to complete: ${progressCount.fail}/${requestCount} files`;
+          }
+          console.log(result);
+          if (progressCount.success === 0) {
+            process.exitCode = 1;
+          }
         }
       });
     }

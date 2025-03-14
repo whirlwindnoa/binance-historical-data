@@ -458,13 +458,17 @@ try {
     addToQueue();
   }
 } catch (e) {
-  if (e.name && e.name === "IncorrectParamError") {
-    console.log("Error: " + e.message);
-    process.exitCode = 2;
+  process.exitCode = 1;
+  if (!e) {
+    console.log("An unexpected error occurred. Exiting...")
+  } else if (e instanceof Error){
+    if (e.name === "IncorrectParamError") {
+      console.log("Error: " + e.message);
+      process.exitCode = 2;
+    } else {
+      console.log(e.stack);
+    }
   } else {
-    console.log(
-      e.message || e.stack || "An unexpected error occurred. Exiting.."
-    );
-    process.exitCode = 255;
+    console.log(e);
   }
 }

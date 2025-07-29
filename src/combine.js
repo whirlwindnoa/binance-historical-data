@@ -22,3 +22,4 @@ async function merge(zipFolder) {
 }
 
 let datapath = './data';
+merge(datapath);

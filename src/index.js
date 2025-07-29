@@ -20,8 +20,6 @@ import https from "https";
 import crypto from "crypto";
 import { PassThrough } from "stream";
 
-import { merge } from "./combine.js";
-
 program
   .option(
     "-d, --date <date...>",
